@@ -1,0 +1,35 @@
+{
+  "name": "react-basetmp",
+  "version": "0.1.1",
+  "description": "react base cli",
+  "main": "entry.js",
+  "scripts": {
+    "prepare": "husky install",
+    "lint": "npm run check",
+    "check": "./node_modules/.bin/eslint --ext .jsx,.js src/",
+    "prettier": "./node_modules/.bin/prettier --write 'src/**/*.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guozhengzhongGit/react-basetmp.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "guo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/guozhengzhongGit/react-basetmp/issues"
+  },
+  "homepage": "https://github.com/guozhengzhongGit/react-basetmp#readme",
+  "devDependencies": {
+    "@commitlint/cli": "13.1.0",
+    "@commitlint/config-conventional": "13.1.0",
+    "eslint": "7.32.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-prettier": "3.4.0",
+    "eslint-plugin-react": "7.24.0",
+    "husky": "7.0.1",
+    "prettier": "2.3.2"
+  }
+}
