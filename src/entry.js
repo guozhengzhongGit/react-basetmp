@@ -1,1 +1,1 @@
-export const name = (str) => str;
+import './main.scss';

@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["./src/*"],
+            "@p/*": ["./src/public/*"],
+            "@c/*": ["./src/components/*"],
+            "@r/*": ["./src/redux/*"],
+            "@s/*": ["./src/services/*"],
+            "@v/*": ["./src/views/*"],
+            "@u/*": ["./src/utils/*"]
+        }
+    }
+}
