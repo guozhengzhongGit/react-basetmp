@@ -4,12 +4,9 @@
         "baseUrl": ".",
         "paths": {
             "@/*": ["./src/*"],
-            "@p/*": ["./src/public/*"],
+            "Public/*": ["./public/*"],
             "@c/*": ["./src/components/*"],
-            "@r/*": ["./src/redux/*"],
-            "@s/*": ["./src/services/*"],
-            "@v/*": ["./src/views/*"],
-            "@u/*": ["./src/utils/*"]
+            "@v/*": ["./src/views/*"]
         }
     }
 }

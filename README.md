@@ -1,5 +1,17 @@
 # react-basetmp
+## HMR react-refresh
+对于 Class 类组件，react-refresh 会一律重新刷新(remount)，已有的 state  会被重置
 
+而对于函数组件，react-refresh 则会保留已有的 state
+
+所以 react-refresh 对函数类组件体验会更好
+
+但使用 react hooks 时，useEffect、useCallback、useMemo 等会重新执行
+
+可以在文件中添加以下注释使得每次热更新都会 remount
+```
+/* @refresh reset */
+```
 ## commit lint
 
 ```
