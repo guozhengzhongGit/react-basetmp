@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, DatePicker, message } from 'antd';
-import style from './rootApp.scss';
+import style from '@/rootApp.scss';
 
 const RootApp = () => {
   const [info, setInfo] = useState({

@@ -9,7 +9,8 @@
     "check": "./node_modules/.bin/eslint --ext .jsx,.js src/",
     "prettier": "./node_modules/.bin/prettier --write 'src/**/*.js'",
     "dev": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.config.js",
-    "build": "cross-env NODE_ENV=production webpack --config config/webpack.pro.config.js"
+    "build": "cross-env NODE_ENV=production webpack-dashboard -- webpack --config config/webpack.pro.config.js",
+    "analyzer": "cross-env NODE_ENV=production webpack-dashboard -- webpack --config config/webpack.pro.config.js"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,7 @@
     "@babel/preset-react": "7.14.5",
     "@commitlint/cli": "13.1.0",
     "@commitlint/config-conventional": "13.1.0",
+    "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
     "babel-loader": "8.0.0-beta.6",
     "clean-webpack-plugin": "4.0.0-alpha.0",
     "cross-env": "7.0.3",
@@ -50,14 +52,18 @@
     "react-refresh": "0.10.0",
     "sass": "1.37.5",
     "sass-loader": "12.1.0",
+    "speed-measure-webpack-plugin": "1.5.0",
     "style-loader": "3.2.1",
+    "thread-loader": "3.0.4",
     "webpack": "5.50.0",
+    "webpack-bundle-analyzer": "4.4.2",
     "webpack-cli": "4.7.2",
+    "webpack-dashboard": "3.3.5",
     "webpack-dev-server": "3.11.2",
+    "webpack-merge": "5.8.0",
     "webpackbar": "5.0.0-3"
   },
   "dependencies": {
-    "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
     "antd": "4.16.12",
     "react": "17.0.2",
     "react-dom": "17.0.2",
