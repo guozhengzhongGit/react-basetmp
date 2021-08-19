@@ -2,6 +2,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const DashboardPlugin = require('webpack-dashboard/plugin');
 const WebpackBar = require('webpackbar');
+const webpack = require('webpack');
+const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
 const paths = require('./paths');
 console.log('process.env.NODE_ENV', process.env.NODE_ENV);
 module.exports = {
@@ -10,6 +12,11 @@ module.exports = {
     index: paths.src + '/entry.js',
   },
   plugins: [
+    new AntdDayjsWebpackPlugin(),
+    new webpack.IgnorePlugin({
+      resourceRegExp: /^\.\/locale$/,
+      contextRegExp: /moment$/,
+    }),
     new DashboardPlugin(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
