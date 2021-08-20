@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Button, DatePicker, message } from 'antd';
+import Icon from '@c/Icon';
+import AntIcon from '@c/AntIcon';
 import style from '@/rootApp.scss';
+import './rootApp.css';
 
 const RootApp = () => {
   const [info, setInfo] = useState({
@@ -29,6 +32,8 @@ const RootApp = () => {
         add
       </Button>
       <DatePicker onChange={handleChange} />
+      <Icon type="icon-gzznan" style={{ fontSize: '28px', color: '#000' }} />
+      <AntIcon type="icon-gzznv" style={{ fontSize: 28, color: '#000' }} />
     </div>
   );
 };

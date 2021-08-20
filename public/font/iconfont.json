@@ -1,0 +1,184 @@
+{
+  "id": "2758544",
+  "name": "react-base",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-gzz",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "11372677",
+      "name": "男",
+      "font_class": "nan",
+      "unicode": "e8b3",
+      "unicode_decimal": 59571
+    },
+    {
+      "icon_id": "11372678",
+      "name": "女",
+      "font_class": "nv",
+      "unicode": "e8b4",
+      "unicode_decimal": 59572
+    },
+    {
+      "icon_id": "348534",
+      "name": "github",
+      "font_class": "github",
+      "unicode": "eaf6",
+      "unicode_decimal": 60150
+    },
+    {
+      "icon_id": "2057658",
+      "name": "云邮箱",
+      "font_class": "yunyouxiang",
+      "unicode": "e72e",
+      "unicode_decimal": 59182
+    },
+    {
+      "icon_id": "3176624",
+      "name": "Facebook",
+      "font_class": "Facebook",
+      "unicode": "e9fd",
+      "unicode_decimal": 59901
+    },
+    {
+      "icon_id": "3176853",
+      "name": "Twitter",
+      "font_class": "Twitter",
+      "unicode": "ea3f",
+      "unicode_decimal": 59967
+    },
+    {
+      "icon_id": "6684308",
+      "name": "微信",
+      "font_class": "weixin",
+      "unicode": "e637",
+      "unicode_decimal": 58935
+    },
+    {
+      "icon_id": "3506877",
+      "name": "weibo",
+      "font_class": "weibo",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "506904",
+      "name": "search",
+      "font_class": "custom-search",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "721658",
+      "name": "文章",
+      "font_class": "ai-article",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "1149088",
+      "name": "档案1",
+      "font_class": "dangan1",
+      "unicode": "e6a5",
+      "unicode_decimal": 59045
+    },
+    {
+      "icon_id": "2959068",
+      "name": "人员档案",
+      "font_class": "renyuandangan",
+      "unicode": "e62b",
+      "unicode_decimal": 58923
+    },
+    {
+      "icon_id": "3507166",
+      "name": "pixiv",
+      "font_class": "pixiv",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "7210575",
+      "name": "app",
+      "font_class": "app",
+      "unicode": "e6d7",
+      "unicode_decimal": 59095
+    },
+    {
+      "icon_id": "312521",
+      "name": "home",
+      "font_class": "home1",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    },
+    {
+      "icon_id": "1203642",
+      "name": "youtube",
+      "font_class": "youtube",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "844625",
+      "name": "箭头1-3",
+      "font_class": "jiantou13",
+      "unicode": "e727",
+      "unicode_decimal": 59175
+    },
+    {
+      "icon_id": "844626",
+      "name": "箭头1-4",
+      "font_class": "jiantou14",
+      "unicode": "e728",
+      "unicode_decimal": 59176
+    },
+    {
+      "icon_id": "2171337",
+      "name": "警告",
+      "font_class": "jinggao",
+      "unicode": "e71a",
+      "unicode_decimal": 59162
+    },
+    {
+      "icon_id": "4472464",
+      "name": "folder-1",
+      "font_class": "folder-",
+      "unicode": "e70e",
+      "unicode_decimal": 59150
+    },
+    {
+      "icon_id": "4472470",
+      "name": "folder-2",
+      "font_class": "folder-1",
+      "unicode": "e710",
+      "unicode_decimal": 59152
+    },
+    {
+      "icon_id": "2087552",
+      "name": "科技",
+      "font_class": "keji",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "3312858",
+      "name": "科学家",
+      "font_class": "kexuejia",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "11267161",
+      "name": "dashboard",
+      "font_class": "dashboard",
+      "unicode": "e62d",
+      "unicode_decimal": 58925
+    },
+    {
+      "icon_id": "7630506",
+      "name": "setting",
+      "font_class": "setting",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    }
+  ]
+}

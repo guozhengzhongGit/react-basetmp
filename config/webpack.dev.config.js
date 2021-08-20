@@ -1,11 +1,8 @@
 const { merge } = require('webpack-merge');
 const webpack = require('webpack');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
-const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 const paths = require('./paths');
 const common = require('./webpack.common.config');
-
-const smp = new SpeedMeasurePlugin();
 
 const devConfig = (opts) => {
   console.log(opts);
@@ -148,4 +145,4 @@ const devConfig = (opts) => {
   });
 };
 
-module.exports = smp.wrap(devConfig);
+module.exports = devConfig;
