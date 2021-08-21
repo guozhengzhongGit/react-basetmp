@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Button, DatePicker, message } from 'antd';
+import { connect } from 'react-redux';
 import Icon from '@c/Icon';
 import AntIcon from '@c/AntIcon';
-import style from '@/rootApp.scss';
+import { toggleSidebarOpened } from '@/store/modules/global/action';
 import './rootApp.css';
 
-const RootApp = () => {
+const RootApp = (props) => {
   const [info, setInfo] = useState({
     count: 0,
     name: 'gzz',
@@ -22,8 +23,12 @@ const RootApp = () => {
       `您选择的日期是: ${value ? value.format('YYYY年MM月DD日') : '未选择'}`
     );
   };
+  const handleToggleSidebar = () => {
+    const { sidebarIsOpen } = props.global;
+    props.toggleSidebarOpened(!sidebarIsOpen);
+  };
   return (
-    <div className={style.outer}>
+    <div>
       <p>
         num: <b>{info.count}</b>
       </p>
@@ -34,8 +39,12 @@ const RootApp = () => {
       <DatePicker onChange={handleChange} />
       <Icon type="icon-gzznan" style={{ fontSize: '28px', color: '#000' }} />
       <AntIcon type="icon-gzznv" style={{ fontSize: 28, color: '#000' }} />
+      <Button onClick={handleToggleSidebar}>toggle</Button>
     </div>
   );
 };
-
-export default RootApp;
+const mapStateToProps = ({ global }) => ({ global });
+const mapDispatchToProps = (dispatch) => ({
+  toggleSidebarOpened: (...rest) => dispatch(toggleSidebarOpened(...rest)),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(RootApp);
