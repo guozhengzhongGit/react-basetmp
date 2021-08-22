@@ -1,0 +1,16 @@
+@import "src/config/var";
+.leftSidebar {
+  width: $sideBarWidth;
+  box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
+  transition: all 0.2s;
+  min-height: 100vh;
+  background: $menuDarkColor;
+  color: #fff;
+  .leftSidebarLogoContainer {
+    height: $headerHeight;
+    overflow: hidden;
+  }
+  .leftSidebarMenuContainer {
+    overflow: hidden;
+  }
+}

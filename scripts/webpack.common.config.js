@@ -4,7 +4,6 @@ const DashboardPlugin = require('webpack-dashboard/plugin');
 const WebpackBar = require('webpackbar');
 const webpack = require('webpack');
 const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
 const paths = require('./paths');
 console.log('process.env.NODE_ENV', process.env.NODE_ENV);
 module.exports = {
@@ -13,15 +12,6 @@ module.exports = {
     index: paths.src + '/entry.js',
   },
   plugins: [
-    new CopyPlugin({
-      patterns: [
-        {
-          from: paths.public + '/font',
-          to: paths.dist + '/font',
-          toType: 'dir',
-        },
-      ],
-    }),
     new AntdDayjsWebpackPlugin(),
     new webpack.IgnorePlugin({
       resourceRegExp: /^\.\/locale$/,
@@ -32,6 +22,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: paths.public + '/index.html',
       filename: (entryName) => entryName + '.html',
+      meta: {
+        viewport:
+          'width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no',
+      },
     }),
     new WebpackBar({
       name: 'react-basecli',
@@ -45,6 +39,10 @@ module.exports = {
       '@c': paths.src + '/components',
       '@v': paths.src + '/views',
       '@a': paths.src + '/assets',
+      '@u': paths.src + '/utils',
+      '@l': paths.src + '/layout',
+      '@r': paths.src + '/router',
+      '@s': paths.src + '/store',
       Public: paths.public,
     },
     extensions: ['.jsx', '.js', '.json'],

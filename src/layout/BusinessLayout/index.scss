@@ -1,0 +1,23 @@
+@import "src/config/var";
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+  font-size: $fontSize;
+  .rightMain {
+    position: relative;
+    flex: 1;
+    height: 100vh;
+    overflow-y: auto;
+    .container {
+      padding: 14px;
+      .loading {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+        z-index: 1;
+      }
+    }
+  }
+}

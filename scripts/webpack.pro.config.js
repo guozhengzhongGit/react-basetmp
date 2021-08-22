@@ -4,6 +4,7 @@ const BundleAnalyzerPlugin =
   require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const paths = require('./paths');
 const common = require('./webpack.common.config');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const prodConfig = (opts) => {
   console.log(opts);
@@ -17,6 +18,15 @@ const prodConfig = (opts) => {
       pathinfo: false,
     },
     plugins: [
+      new CopyPlugin({
+        patterns: [
+          {
+            from: paths.public + '/font',
+            to: paths.dist + '/font',
+            toType: 'dir',
+          },
+        ],
+      }),
       new MiniCssExtractPlugin({
         filename: '[name].[hash].css',
         chunkFilename: '[id].[hash].css',
