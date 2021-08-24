@@ -7,8 +7,11 @@ import localStorage from '@u/localStorage';
 
 const getToken = () => localStorage.getValue('token');
 
+const baseURL = AdminConfig.API_BASE_URL[SYSTEM_BUILD_TARGET];
+if (!baseURL) console.error('当前构建参数错误，拿不到正确的请求地址');
 const instance = axios.create({
   'Content-Type': 'application/json;charset=utf-8',
+  baseURL,
 });
 
 // 添加请求拦截器
@@ -29,7 +32,7 @@ instance.interceptors.request.use(
 
 // 添加响应拦截器，拦截登录过期或者没有权限
 
-axios.interceptors.response.use(
+instance.interceptors.response.use(
   (response) => {
     if (!response.data) {
       return Promise.resolve(response);

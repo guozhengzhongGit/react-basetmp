@@ -19,6 +19,7 @@ enablePatches();
 
 import localStorage from '@u/localStorage';
 localStorage.setValue('token', 'dasfsfsjkldsfjls89779e0ew8r0wrwe');
+console.log('入口文件entry', SYSTEM_BUILD_TARGET);
 
 ReactDOM.render(
   <Provider store={store}>

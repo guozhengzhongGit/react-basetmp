@@ -1,8 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 const Dashboard = () => {
-  useEffect(() => {
-    console.log(SYSTEM_BUILD_TARGET);
-  }, []);
-  return <div>Dashboard{SYSTEM_BUILD_TARGET}</div>;
+  return <div>Dashboard</div>;
 };
 export default Dashboard;
