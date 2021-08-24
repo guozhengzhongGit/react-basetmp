@@ -10,6 +10,9 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:prettier/recommended',
   ],
+  globals: {
+    SYSTEM_BUILD_TARGET: 'readonly',
+  },
   parserOptions: {
     ecmaFeatures: {
       jsx: true,

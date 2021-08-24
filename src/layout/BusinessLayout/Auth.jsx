@@ -3,8 +3,7 @@ import { Redirect } from 'react-router-dom';
 import store from '@s/index';
 import { businessRouteList } from '@r/utils';
 import localStorage from '@u/localStorage';
-import AdminConfig from '@/config/adminConfig';
-localStorage.setValue('token', 'dasfsfsjkldsfjls89779e0ew8r0wrwe');
+
 const getToken = () => localStorage.getValue('token');
 
 function checkAuth(location) {
@@ -43,7 +42,6 @@ function Auth(props) {
       <Redirect
         to={`/system/login?redirectURL=${encodeURIComponent(
           window.location.origin +
-            AdminConfig.BASENAME +
             props.location.pathname +
             props.location.search
         )}`}

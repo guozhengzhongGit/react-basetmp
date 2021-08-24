@@ -6,35 +6,44 @@ const paths = require('./paths');
 const common = require('./webpack.common.config');
 const CopyPlugin = require('copy-webpack-plugin');
 
-const prodConfig = (opts) => {
-  console.log(opts);
+const isAnalyzer = process.env.analyzer;
+
+const prodPlugins = [
+  new CopyPlugin({
+    patterns: [
+      {
+        from: paths.public + '/font',
+        to: paths.dist + '/font',
+        toType: 'dir',
+      },
+    ],
+  }),
+  new MiniCssExtractPlugin({
+    filename: '[name].[hash].css',
+    chunkFilename: '[id].[hash].css',
+  }),
+];
+
+if (isAnalyzer === 'true') {
+  prodPlugins.push(
+    new BundleAnalyzerPlugin({
+      analyzerPort: 8099,
+    })
+  );
+}
+
+const prodConfig = () => {
   return merge(common, {
     devtool: 'source-map',
     mode: 'production',
     output: {
       path: paths.dist,
+      publicPath: './',
       filename: '[name].[chunkhash].js',
       clean: true,
       pathinfo: false,
     },
-    plugins: [
-      new CopyPlugin({
-        patterns: [
-          {
-            from: paths.public + '/font',
-            to: paths.dist + '/font',
-            toType: 'dir',
-          },
-        ],
-      }),
-      new MiniCssExtractPlugin({
-        filename: '[name].[hash].css',
-        chunkFilename: '[id].[hash].css',
-      }),
-      new BundleAnalyzerPlugin({
-        analyzerPort: 8099,
-      }),
-    ],
+    plugins: prodPlugins,
     module: {
       rules: [
         // 源码的样式文件

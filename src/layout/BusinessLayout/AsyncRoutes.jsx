@@ -1,7 +1,7 @@
 import React from 'react';
 import { Spin } from 'antd';
 import { connect } from 'react-redux';
-// import { apiGetMenuList } from '../views/auth/user/service';
+import { apiGetMenuList } from './api';
 import TransitionRoute from '@c/TransitionRoute';
 import { setSidebarRoutes } from '@s/modules/global/action';
 
@@ -92,8 +92,14 @@ function formatMenuToRoute(menus) {
   return result;
 }
 
+const getBusinessMenuList = async () => {
+  const res = await apiGetMenuList();
+  console.log(res);
+};
+
 function AsyncRoutes(props) {
   if (!props.global.load) {
+    getBusinessMenuList();
     Promise.resolve(list)
       .then((data) => {
         props.setSideBarRoutes(formatMenuToRoute(data));

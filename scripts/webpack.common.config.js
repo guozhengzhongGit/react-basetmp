@@ -5,13 +5,16 @@ const WebpackBar = require('webpackbar');
 const webpack = require('webpack');
 const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
 const paths = require('./paths');
-console.log('process.env.NODE_ENV', process.env.NODE_ENV);
+
 module.exports = {
   target: 'web',
   entry: {
     index: paths.src + '/entry.js',
   },
   plugins: [
+    new webpack.DefinePlugin({
+      SYSTEM_BUILD_TARGET: JSON.stringify(process.env.BUILD_TARGET),
+    }),
     new AntdDayjsWebpackPlugin(),
     new webpack.IgnorePlugin({
       resourceRegExp: /^\.\/locale$/,
@@ -72,5 +75,8 @@ module.exports = {
         type: 'asset',
       },
     ],
+  },
+  cache: {
+    type: 'filesystem',
   },
 };

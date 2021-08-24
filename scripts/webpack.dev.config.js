@@ -1,30 +1,42 @@
 const { merge } = require('webpack-merge');
-const webpack = require('webpack');
+// const webpack = require('webpack');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const paths = require('./paths');
 const common = require('./webpack.common.config');
 
-const devConfig = (opts) => {
-  console.log(opts);
+const devConfig = () => {
   return merge(common, {
     devtool: 'source-map',
     mode: 'development',
     output: {
       path: paths.dist,
+      publicPath: '/',
       filename: '[name].bundle.js',
+      chunkFilename: '[id].bundle.js',
       clean: true,
       pathinfo: false,
     },
-    plugins: [
-      new webpack.HotModuleReplacementPlugin(),
-      new ReactRefreshWebpackPlugin(),
-    ],
+    plugins: [new ReactRefreshWebpackPlugin()],
     devServer: {
-      contentBase: paths.dist,
       compress: true,
-      port: 9080,
-      open: true,
       hot: true,
+      open: true,
+      port: 9080,
+      historyApiFallback: true,
+      proxy: {
+        '/api': {
+          target: 'https://www.landluck.cn/react-ant-admin-api',
+          pathRewrite: { '^/api': '' },
+          secure: false,
+        },
+      },
+      client: {
+        progress: true,
+      },
+      static: {
+        directory: paths.dist,
+        publicPath: '/',
+      },
     },
     module: {
       rules: [

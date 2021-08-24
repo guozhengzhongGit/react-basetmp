@@ -55,7 +55,7 @@ const routes = [
     redirect: '/homepage/dashboard',
     children: [
       {
-        path: '/dashboard',
+        path: '/homepage',
         meta: {
           title: '首页',
           icon: 'dashboard',

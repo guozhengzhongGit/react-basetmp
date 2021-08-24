@@ -28,3 +28,5 @@ test：新增测试用例或是更新现有测试
 revert：回滚某个更早之前的提交
 chore：不属于以上类型的其他类型
 ```
+## npm run dev 启动开发模式
+需要 https 服务的，可修改 package.json 中的 dev 脚本，在最后添加 --https 即可

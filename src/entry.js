@@ -17,6 +17,9 @@ dayjs.locale('zh-cn');
 enableMapSet();
 enablePatches();
 
+import localStorage from '@u/localStorage';
+localStorage.setValue('token', 'dasfsfsjkldsfjls89779e0ew8r0wrwe');
+
 ReactDOM.render(
   <Provider store={store}>
     <ConfigProvider locale={zhCN}>

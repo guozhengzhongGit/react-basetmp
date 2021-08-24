@@ -53,7 +53,7 @@
 
 import React, { Suspense } from 'react';
 import { Spin } from 'antd';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { layoutRouteList } from '@r/utils';
 import adminConfig from '@/config/adminConfig';
 import style from './rootApp.scss';
@@ -61,7 +61,7 @@ import style from './rootApp.scss';
 function App() {
   return (
     <Suspense fallback={<Spin size="large" className={style.loading} />}>
-      <Router basename={adminConfig.BASENAME}>
+      <BrowserRouter>
         <Switch>
           {layoutRouteList.map((route) => (
             <Route
@@ -71,7 +71,7 @@ function App() {
             />
           ))}
         </Switch>
-      </Router>
+      </BrowserRouter>
     </Suspense>
   );
 }

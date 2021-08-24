@@ -1,5 +1,4 @@
 import routes from './index';
-import adminConfig from '@/config/adminConfig';
 
 /**
  *
@@ -63,10 +62,8 @@ export const businessRouteList = getBusinessRouteList();
 
 export const systemRouteList = getSystemRouteList();
 
-function findRoutesByPaths(pathList, routeList, basename) {
-  return routeList.filter(
-    (child) => pathList.indexOf((basename || '') + child.path) !== -1
-  );
+function findRoutesByPaths(pathList, routeList) {
+  return routeList.filter((child) => pathList.indexOf(child.path) !== -1);
 }
 
 export function getPageTitle(routeList) {
@@ -90,9 +87,5 @@ export function getPagePathList(pathname) {
  * 只有业务路由会有面包屑
  */
 export function getBreadcrumbs() {
-  return findRoutesByPaths(
-    getPagePathList(),
-    businessRouteList,
-    adminConfig.BASENAME
-  );
+  return findRoutesByPaths(getPagePathList(), businessRouteList);
 }
