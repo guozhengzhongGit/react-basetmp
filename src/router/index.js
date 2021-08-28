@@ -8,7 +8,7 @@ import React from 'react';
 const routes = [
   {
     path: '/system',
-    component: React.lazy(() => import('@l/SystemLayout')),
+    component: React.lazy(() => import('../layout/SystemLayout')),
     meta: {
       title: '系统路由',
     },
@@ -16,14 +16,14 @@ const routes = [
     children: [
       {
         path: '/system/login',
-        component: React.lazy(() => import('@v/system/Login')),
+        component: React.lazy(() => import('../views/system/Login')),
         meta: {
           title: '登录',
         },
       },
       {
         path: '/system/register',
-        component: React.lazy(() => import('@v/system/Register')),
+        component: React.lazy(() => import('../views/system/Register')),
         meta: {
           title: '注册',
         },
@@ -49,7 +49,7 @@ const routes = [
   {
     path: '/',
     // component: React.lazy(() => import('@l/BusinessLayout')),
-    component: React.lazy(() => import('@v/system/UserCenter')),
+    component: React.lazy(() => import('../views/system/UserCenter')),
     meta: {
       title: '系统',
     },
