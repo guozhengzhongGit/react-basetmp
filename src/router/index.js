@@ -23,7 +23,7 @@ const routes = [
       },
       {
         path: '/system/register',
-        component: React.lazy(() => import('@v/system/register')),
+        component: React.lazy(() => import('@v/system/Register')),
         meta: {
           title: '注册',
         },
