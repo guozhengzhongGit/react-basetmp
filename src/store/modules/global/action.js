@@ -7,3 +7,7 @@ export const setSidebarRoutes = (data) => ({
   type: actions.SET_SIDEBAR_ROUTES,
   payload: data,
 });
+export const setUserInfo = (data) => ({
+  type: actions.SET_USER_INFO,
+  payload: data,
+});

@@ -4,7 +4,11 @@ import store from '@s/index';
 import { businessRouteList } from '@r/utils';
 import localStorage from '@u/localStorage';
 
-const getToken = () => localStorage.getValue('token');
+const userInfo = localStorage.getValue('userInfo');
+
+const getToken = () => {
+  return (userInfo && userInfo.token) || '';
+};
 
 function checkAuth(location) {
   // redux 中的 routes 同时负责渲染 sidebar
@@ -26,7 +30,7 @@ function checkAuth(location) {
   if (route.auth === false) {
     return true;
   }
-  console.log(flattenRoutes);
+
   // 路由存在于系统中，查看该用户是否有此路由权限
   if (!flattenRoutes.find((child) => child.path === location.pathname)) {
     return false;

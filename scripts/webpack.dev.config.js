@@ -23,13 +23,13 @@ const devConfig = () => {
       open: true,
       port: 9080,
       historyApiFallback: true,
-      proxy: {
-        '/api': {
-          target: 'https://www.landluck.cn/react-ant-admin-api',
-          pathRewrite: { '^/api': '' },
-          secure: false,
-        },
-      },
+      // proxy: {
+      //   '/api': {
+      //     target: 'https://www.landluck.cn/react-ant-admin-api',
+      //     pathRewrite: { '^/api': '' },
+      //     secure: false,
+      //   },
+      // },
       client: {
         progress: true,
       },

@@ -1,0 +1,29 @@
+@import "src/config/var.scss";
+.formOuter {
+  width: 520px;
+  margin: 100px auto 0;
+  .spaceBetween {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .otherLogin {
+      color: #696969;
+      display: flex;
+      align-items: center;
+      .loginType {
+        margin-right: 16px;
+        cursor: pointer;
+        font-size: 20px;
+        transition: all .2s linear;
+      }
+      .loginType:hover {
+        color: $primaryColor;
+      }
+    }
+  }
+}
+:global {
+  .ant-form-item {
+    // margin-bottom: 20px;
+  }
+}

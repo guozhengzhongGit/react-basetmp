@@ -29,6 +29,7 @@ module.exports = {
         viewport:
           'width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no',
       },
+      favicon: paths.public + '/imgs/favicon.ico',
     }),
     new WebpackBar({
       name: 'react-basecli',

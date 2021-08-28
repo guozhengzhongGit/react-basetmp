@@ -5,4 +5,25 @@
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
   overflow: hidden;
   height: $headerHeight;
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 0 16px;
+  .userAvatarOuter {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    .userName {
+      padding-left: 8px;
+    }
+    // :global {
+    //   .ant-avatar-image {
+    //     width: 26px;
+    //     height: 26px;
+    //     img {
+    //       display: block;
+    //       width: 100%;
+    //     }
+    //   }
+    // }
+  }
 }

@@ -1,0 +1,9 @@
+.formOuter {
+  width: 500px;
+  margin: 0 auto;
+}
+:global {
+  .ant-form-item-label {
+    width: 100px;
+  }
+}

@@ -16,6 +16,11 @@ const prodPlugins = [
         to: paths.dist + '/font',
         toType: 'dir',
       },
+      {
+        from: paths.public + '/imgs',
+        to: paths.dist + '/imgs',
+        toType: 'dir',
+      },
     ],
   }),
   new MiniCssExtractPlugin({

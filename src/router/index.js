@@ -48,7 +48,8 @@ const routes = [
   },
   {
     path: '/',
-    component: React.lazy(() => import('@l/BusinessLayout')),
+    // component: React.lazy(() => import('@l/BusinessLayout')),
+    component: React.lazy(() => import('@v/system/UserCenter')),
     meta: {
       title: '系统',
     },
