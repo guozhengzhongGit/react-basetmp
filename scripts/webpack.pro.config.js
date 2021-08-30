@@ -43,7 +43,7 @@ const prodConfig = () => {
     mode: 'production',
     output: {
       path: paths.dist,
-      publicPath: './',
+      publicPath: '/',
       filename: '[name].[chunkhash].js',
       clean: true,
       pathinfo: false,

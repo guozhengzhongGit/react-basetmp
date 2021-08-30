@@ -8,7 +8,9 @@ import React from 'react';
 const routes = [
   {
     path: '/system',
-    component: React.lazy(() => import('../layout/SystemLayout')),
+    component: React.lazy(() =>
+      import(/* webpackChunkName: "systemLayout" */ '@l/SystemLayout')
+    ),
     meta: {
       title: '系统路由',
     },
@@ -16,14 +18,18 @@ const routes = [
     children: [
       {
         path: '/system/login',
-        component: React.lazy(() => import('../views/system/Login')),
+        component: React.lazy(() =>
+          import(/* webpackChunkName: "login" */ '@v/system/Login')
+        ),
         meta: {
           title: '登录',
         },
       },
       {
         path: '/system/register',
-        component: React.lazy(() => import('../views/system/Register')),
+        component: React.lazy(() =>
+          import(/* webpackChunkName: "register" */ '@v/system/Register')
+        ),
         meta: {
           title: '注册',
         },
@@ -49,7 +55,9 @@ const routes = [
   {
     path: '/',
     // component: React.lazy(() => import('@l/BusinessLayout')),
-    component: React.lazy(() => import('../views/system/UserCenter')),
+    component: React.lazy(() =>
+      import(/* webpackChunkName: "userCenter" */ '@v/system/UserCenter')
+    ),
     meta: {
       title: '系统',
     },
@@ -65,7 +73,11 @@ const routes = [
         children: [
           {
             path: '/homepage/dashboard',
-            component: React.lazy(() => import('@v/homepage/Dashboard')),
+            component: React.lazy(() =>
+              import(
+                /* webpackChunkName: "dashboard" */ '@v/homepage/Dashboard'
+              )
+            ),
             meta: {
               title: '系统介绍',
               icon: 'read',
