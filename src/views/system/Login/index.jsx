@@ -15,7 +15,7 @@ import { Link } from 'react-router-dom';
 
 import { setUserInfo } from '@s/modules/global/action';
 import localStorage from '@u/localStorage';
-
+// import { secretValue } from '@u/secret';
 import { login } from './api';
 import style from './style.scss';
 
