@@ -34,7 +34,7 @@ const UserLayout = () => {
             </Link>
           </Typography.Title>
           <div className={style.desc}>全栈开发的 react admin</div>
-          <Suspense fallback={<Spin className="layout__loading" />}>
+          <Suspense fallback={<Spin className={style.loading} />}>
             <Switch>
               {systemRouteList.map((menu) => (
                 <Route
