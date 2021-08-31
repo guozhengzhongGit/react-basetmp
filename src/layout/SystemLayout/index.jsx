@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { Route, Switch, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -6,10 +6,20 @@ import { Spin, Typography } from 'antd';
 
 import { getPageTitle, systemRouteList } from '@r/utils';
 
+import { getSecretKey } from './api';
 import style from './index.scss';
 
 const UserLayout = () => {
   const title = getPageTitle(systemRouteList);
+  useEffect(() => {
+    getSecretKey()
+      .then((res) => {
+        if (res && res.code === 200) {
+          sessionStorage.setItem('secretKey', JSON.stringify(res.data));
+        }
+      })
+      .catch((e) => e);
+  }, []);
   return (
     <>
       <Helmet>

@@ -15,7 +15,7 @@ import { Link } from 'react-router-dom';
 
 import { setUserInfo } from '@s/modules/global/action';
 import localStorage from '@u/localStorage';
-
+import { encrypt, decrypt } from '@u/secret';
 import { login } from './api';
 import style from './style.scss';
 
@@ -48,9 +48,10 @@ const Login = (props) => {
   const onFinish = (values) => {
     setInfo(() => ({ loading: true }));
     const { username, password } = values;
+    decrypt(encrypt(password));
     const params = {
       username,
-      password,
+      password: encrypt(password),
       accountType: isPhone.test(username) ? 'phone' : 'email',
     };
     login(params)
