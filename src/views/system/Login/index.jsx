@@ -13,10 +13,10 @@ import {
 } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 
-import { setUserInfo } from '@s/modules/global/action';
+import { setUserInfo, setSidebarRoutes } from '@s/modules/global/action';
 import localStorage from '@u/localStorage';
-import { encrypt, decrypt } from '@u/secret';
-import { login } from './api';
+import { encrypt } from '@u/secret';
+import { apiPostLogin } from './api';
 import style from './style.scss';
 
 const formItemLayout = {
@@ -28,15 +28,6 @@ const selfMarginBottom = {
   marginBottom: 16,
 };
 
-// const { Option } = Select;
-
-// const selectAfter = (
-//   <Select defaultValue="phone" className="select-before">
-//     <Option value="phone">手机号码</Option>
-//     <Option value="email">邮箱账号</Option>
-//   </Select>
-// );
-
 const Login = (props) => {
   const [info, setInfo] = useState({
     loading: false,
@@ -45,33 +36,34 @@ const Login = (props) => {
   const { history, location } = props;
   const searchObj = queryString.parse(location.search);
 
+  const submitLogin = async (params) => {
+    try {
+      const res = await apiPostLogin(params);
+      if (res.code === 200 && res.data.token) {
+        localStorage.setValue('userInfo', res.data);
+        if (searchObj && searchObj.redirecturl) {
+          const redirectUrlObj = new Url(searchObj.redirecturl);
+          const { pathname, query, hash } = redirectUrlObj;
+          history.push(`${pathname}${query}${hash}`);
+        } else {
+          history.push('/');
+        }
+      }
+    } catch (error) {
+      setInfo(() => ({ loading: false }));
+      console.error(error);
+    }
+  };
+
   const onFinish = (values) => {
     setInfo(() => ({ loading: true }));
     const { username, password } = values;
-    decrypt(encrypt(password));
     const params = {
       username,
       password: encrypt(password),
       accountType: isPhone.test(username) ? 'phone' : 'email',
     };
-    login(params)
-      .then((res) => {
-        setInfo(() => ({ loading: false }));
-        if (res.code === 200 && res.data.token) {
-          localStorage.setValue('userInfo', res.data);
-          props.changeUserInfo(res.data);
-          if (searchObj && searchObj.redirecturl) {
-            const redirectUrlObj = new Url(searchObj.redirecturl);
-            const { pathname, query, hash } = redirectUrlObj;
-            history.push(`${pathname}${query}${hash}`);
-          } else {
-            history.push('/');
-          }
-        }
-      })
-      .catch(() => {
-        setInfo(() => ({ loading: false }));
-      });
+    submitLogin(params);
   };
 
   return (
@@ -166,6 +158,7 @@ const Login = (props) => {
 
 const mapDispatchToProps = (dispatch) => ({
   changeUserInfo: (...params) => dispatch(setUserInfo(...params)),
+  setSideBarRoutes: (...rest) => dispatch(setSidebarRoutes(...rest)),
 });
 
 export default connect(({ global }) => ({ global }), mapDispatchToProps)(Login);

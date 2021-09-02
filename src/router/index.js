@@ -56,23 +56,23 @@ const routes = [
     path: '/',
     // component: React.lazy(() => import('@l/BusinessLayout')),
     component: React.lazy(() =>
-      import(/* webpackChunkName: "userCenter" */ '@v/system/UserCenter')
+      import(/* webpackChunkName: "businessLayout" */ '@l/BusinessLayout')
     ),
     meta: {
-      title: '系统',
+      title: '业务',
     },
-    redirect: '/homepage/dashboard',
+    redirect: '/home/dashboard',
     children: [
       {
-        path: '/homepage',
+        path: '/home',
         meta: {
           title: '首页',
           icon: 'dashboard',
         },
-        redirect: '/homepage/dashboard',
+        redirect: '/home/dashboard',
         children: [
           {
-            path: '/homepage/dashboard',
+            path: '/home/dashboard',
             component: React.lazy(() =>
               import(
                 /* webpackChunkName: "dashboard" */ '@v/homepage/Dashboard'
@@ -84,6 +84,43 @@ const routes = [
             },
           },
         ],
+      },
+      // 以下的路由改动请小心，涉及权限校验模块
+      {
+        path: '/error',
+        meta: {
+          title: '错误页面',
+        },
+        redirect: '/error/404',
+        children: [
+          {
+            path: '/error/404',
+            auth: false,
+            component: React.lazy(() =>
+              import(/* webpackChunkName: "404" */ '@v/error/notFound')
+            ),
+            meta: {
+              title: '页面不存在',
+            },
+          },
+          {
+            path: '/error/403',
+            auth: false,
+            component: React.lazy(() =>
+              import(/* webpackChunkName: "403" */ '@v/error/forbidden')
+            ),
+            meta: {
+              title: '暂无权限',
+            },
+          },
+        ],
+      },
+      {
+        path: '/*',
+        meta: {
+          title: '错误页面',
+        },
+        redirect: '/error/404',
       },
     ],
   },

@@ -11,3 +11,6 @@ export const setUserInfo = (data) => ({
   type: actions.SET_USER_INFO,
   payload: data,
 });
+export const initSystemInfo = () => ({
+  type: actions.INIT_SYSTEM_INFO,
+});

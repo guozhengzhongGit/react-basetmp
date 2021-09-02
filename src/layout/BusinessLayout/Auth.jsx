@@ -4,9 +4,8 @@ import store from '@s/index';
 import { businessRouteList } from '@r/utils';
 import localStorage from '@u/localStorage';
 
-const userInfo = localStorage.getValue('userInfo');
-
 const getToken = () => {
+  const userInfo = localStorage.getValue('userInfo');
   return (userInfo && userInfo.token) || '';
 };
 
@@ -31,7 +30,7 @@ function checkAuth(location) {
     return true;
   }
 
-  // 路由存在于系统中，查看该用户是否有此路由权限
+  // 路由存在于系统中，查看该用户是否有此路由权限，find 找不到的话返回 undefined
   if (!flattenRoutes.find((child) => child.path === location.pathname)) {
     return false;
   }
@@ -53,7 +52,7 @@ function Auth(props) {
     );
   }
 
-  // 检查授权
+  // 检查授权，checkAuth 为 false，则无权限
   if (!checkAuth(props.location)) {
     return <Redirect to="/error/403" push />;
   }

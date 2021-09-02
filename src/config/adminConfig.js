@@ -1,5 +1,5 @@
 const AdminConfig = {
-  BASENAME: '/react-ant-admin',
+  BASENAME: 'react-base-cli',
   THEME_STYLE: 'dark',
   LAYOUT_STYLE: 'side',
   LOGIN_EXPIRE: 201,

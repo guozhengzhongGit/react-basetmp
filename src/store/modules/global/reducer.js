@@ -18,6 +18,11 @@ const initialState = {
 const globalReducer = (state = initialState, action) =>
   produce(state, (draftState) => {
     switch (action.type) {
+      case actions.INIT_SYSTEM_INFO:
+        draftState.routes = [];
+        draftState.flattenRoutes = [];
+        draftState.userInfo = {};
+        break;
       case actions.TOGGLE_SIDEBAR_OPENED:
         draftState.sidebarIsOpen = action.payload;
         break;

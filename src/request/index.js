@@ -7,9 +7,8 @@ import AdminConfig from '@/config/adminConfig';
 
 import localStorage from '@u/localStorage';
 
-const userInfo = localStorage.getValue('userInfo');
-
 const getToken = () => {
+  const userInfo = localStorage.getValue('userInfo');
   return (userInfo && userInfo.token) || '';
 };
 
@@ -19,7 +18,6 @@ const instance = axios.create({
   'Content-Type': 'application/json;charset=utf-8',
   baseURL,
 });
-
 // 添加请求拦截器
 instance.interceptors.request.use(
   (config) => {
