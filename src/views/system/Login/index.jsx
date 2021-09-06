@@ -46,7 +46,7 @@ const Login = (props) => {
           const { pathname, query, hash } = redirectUrlObj;
           history.push(`${pathname}${query}${hash}`);
         } else {
-          history.push('/');
+          history.push('/home/dashboard');
         }
       }
     } catch (error) {

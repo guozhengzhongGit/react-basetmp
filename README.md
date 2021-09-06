@@ -12,6 +12,29 @@
 ```
 /* @refresh reset */
 ```
+## 禁用 eslint
+```
+/* eslint-disable */
+alert('foo');
+/* eslint-enable */
+```
+或者
+```
+/* eslint-disable no-alert, no-console */
+
+alert('foo');
+console.log('bar');
+
+/* eslint-enable no-alert, no-console */
+```
+或者
+```
+// eslint-disable-line
+/* eslint-disable-line */
+// eslint-disable-next-line
+/* eslint-disable-next-line */
+```
+
 ## commit lint
 
 ```

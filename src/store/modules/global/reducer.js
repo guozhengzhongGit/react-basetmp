@@ -7,12 +7,14 @@ const initialState = {
   load: false,
   sidebarIsOpen: true,
   routes: [],
+  rootMenuKeys: [],
   flattenRoutes: [],
   theme: {
     themeStyle: AdminConfig.THEME_STYLE,
     layoutStyle: AdminConfig.LAYOUT_STYLE,
   },
   userInfo: {},
+  curBusinessPath: '',
 };
 
 const globalReducer = (state = initialState, action) =>
@@ -20,8 +22,12 @@ const globalReducer = (state = initialState, action) =>
     switch (action.type) {
       case actions.INIT_SYSTEM_INFO:
         draftState.routes = [];
+        draftState.rootMenuKeys = [];
         draftState.flattenRoutes = [];
         draftState.userInfo = {};
+        draftState.load = false;
+        draftState.sidebarIsOpen = true;
+        draftState.curBusinessPath = '';
         break;
       case actions.TOGGLE_SIDEBAR_OPENED:
         draftState.sidebarIsOpen = action.payload;
@@ -30,9 +36,13 @@ const globalReducer = (state = initialState, action) =>
         draftState.load = true;
         draftState.routes = action.payload;
         draftState.flattenRoutes = flattenRoute(action.payload, true, false);
+        draftState.rootMenuKeys = action.payload.map((item) => item.path);
         break;
       case actions.SET_USER_INFO:
         draftState.userInfo = action.payload;
+        break;
+      case actions.SET_CUR_BUSINESS_PATH:
+        draftState.curBusinessPath = action.payload;
         break;
       default:
         break;

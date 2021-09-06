@@ -1,9 +1,8 @@
 import request from '@/request';
 
-export const apiGetMenuTree = (params) => {
+export const apiGetRoleInfo = () => {
   return request({
     method: 'GET',
-    url: '/menu/tree',
-    params,
+    url: '/role/list',
   });
 };

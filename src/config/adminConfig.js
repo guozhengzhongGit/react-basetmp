@@ -5,6 +5,7 @@ const AdminConfig = {
   LOGIN_EXPIRE: 201,
   // 请求成功状态码
   SUCCESS_CODE: 200,
+  HOME_PAGE: '/home/dashboard',
   API_BASE_URL: {
     production: 'http://127.0.0.1:7001',
     test: 'http://127.0.0.1:7001',

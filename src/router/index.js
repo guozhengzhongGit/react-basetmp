@@ -87,6 +87,46 @@ const routes = [
       },
       // 以下的路由改动请小心，涉及权限校验模块
       {
+        path: '/auth',
+        meta: {
+          title: '权限管理',
+        },
+        redirect: '/auth/role',
+        children: [
+          {
+            path: '/auth/role',
+            auth: true,
+            meta: {
+              title: '角色管理',
+            },
+            component: React.lazy(() =>
+              import(/* webpackChunkName: "404" */ '@v/auth/role')
+            ),
+          },
+        ],
+      },
+      {
+        path: '/content',
+        meta: {
+          title: '内容管理',
+        },
+        redirect: '/content/create',
+        children: [
+          {
+            path: '/content/create',
+            auth: true,
+            meta: {
+              title: '新建内容',
+            },
+            component: React.lazy(() =>
+              import(
+                /* webpackChunkName: "createContent" */ '@v/content/create'
+              )
+            ),
+          },
+        ],
+      },
+      {
         path: '/error',
         meta: {
           title: '错误页面',

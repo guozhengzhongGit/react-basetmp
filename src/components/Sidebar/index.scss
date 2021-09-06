@@ -9,6 +9,22 @@
   .leftSidebarLogoContainer {
     height: $headerHeight;
     overflow: hidden;
+    display: flex;
+    background: #001519;
+    align-items: center;
+    justify-content: center;
+    .logo {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+    .systemName {
+      color: #c0c0c0;
+    }
   }
   .leftSidebarMenuContainer {
     overflow: hidden;

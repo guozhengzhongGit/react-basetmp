@@ -14,6 +14,7 @@ function checkAuth(location) {
   const { flattenRoutes } = store.getState().global;
 
   // 判断当前访问路由是否在系统路由中, 不存在直接走最后默认的 404 路由
+
   const route = businessRouteList.find(
     (child) => child.path === location.pathname
   );

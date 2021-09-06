@@ -6,11 +6,9 @@ import React, { useMemo, memo } from 'react';
 import Helmet from 'react-helmet';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Spin } from 'antd';
 import Auth from './Auth';
 import { businessRouteList, getPageTitle } from '@r/utils';
-import TransitionRoute from '@c/TransitionRoute';
-import style from './index.scss';
+import AsyncRoutes from './AsyncRoutes';
 
 function renderRoute(route) {
   const title = getPageTitle(businessRouteList);
@@ -44,11 +42,10 @@ function renderRouteList() {
   return result;
 }
 
-function RouterView(props) {
-  if (!props.menuLoad) return <Spin size="large" className={style.loading} />;
+function RouterView() {
   const routeList = useMemo(() => renderRouteList(), []);
 
-  return <TransitionRoute>{routeList}</TransitionRoute>;
+  return <AsyncRoutes>{routeList}</AsyncRoutes>;
 }
 
 export default connect(({ global }) => ({ menuLoad: global.load }))(

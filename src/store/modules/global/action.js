@@ -14,3 +14,7 @@ export const setUserInfo = (data) => ({
 export const initSystemInfo = () => ({
   type: actions.INIT_SYSTEM_INFO,
 });
+export const setCurBusinessPath = (data) => ({
+  type: actions.SET_CUR_BUSINESS_PATH,
+  payload: data,
+});

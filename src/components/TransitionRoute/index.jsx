@@ -2,14 +2,16 @@ import React from 'react';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { Route, Switch } from 'react-router-dom';
 
-function TransitionMain({ children }) {
+import './style.css';
+
+function TransitionRoute({ children }) {
   return (
     <Route
       render={({ location }) => (
-        <TransitionGroup className="layout__route">
+        <TransitionGroup>
           <CSSTransition
             key={location.pathname}
-            classNames="layout__route"
+            className="routeAnimation"
             timeout={300}
           >
             <Switch location={location}>{children}</Switch>
@@ -20,4 +22,4 @@ function TransitionMain({ children }) {
   );
 }
 
-export default TransitionMain;
+export default TransitionRoute;
