@@ -1,6 +1,5 @@
 @import "src/config/var";
 .leftSidebar {
-  width: $sideBarWidth;
   box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
   transition: all 0.2s;
   min-height: 100vh;
@@ -16,17 +15,23 @@
     .logo {
       width: 30px;
       height: 30px;
-      margin-right: 10px;
       img {
         display: block;
         width: 100%;
       }
     }
     .systemName {
+      margin-left: 10px;
       color: #c0c0c0;
     }
   }
   .leftSidebarMenuContainer {
     overflow: hidden;
   }
+}
+.leftSidebarOpenWidth {
+  width: $sideBarWidth;
+}
+.leftSidebarCloseWidth {
+  width: 80px;
 }

@@ -141,26 +141,60 @@ const prodConfig = () => {
             },
           ],
         },
-        // {
-        //   test: /\.css$/,
-        //   include: [
-        //     /node_modules[\\/]normalize\.css/,
-        //     /node_modules[\\/]braft-editor/,
-        //     /components[\\/]edit/,
-        //     /iconfont\.css$/,
-        //   ],
-        //   use: [
-        //     {
-        //       loader: MiniCssExtractPlugin.loader,
-        //     },
-        //     {
-        //       loader: 'css-loader',
-        //       options: {
-        //         modules: false,
-        //       },
-        //     },
-        //   ],
-        // },
+        {
+          test: /\.s[ac]ss$/i,
+          include: [
+            /node_modules[\\/]juejin-markdown-theme-channing-cyan/,
+            // /node_modules/
+            // /node_modules[\\/]normalize\.css/,
+            // /node_modules[\\/]braft-editor/,
+            // /components[\\/]edit/,
+            // /iconfont\.css$/,
+          ],
+          use: [
+            {
+              loader: MiniCssExtractPlugin.loader,
+            },
+            {
+              loader: 'css-loader',
+              options: {
+                modules: false,
+              },
+            },
+            // 将 Sass 编译成 CSS
+            {
+              loader: 'sass-loader',
+              options: {
+                implementation: require('sass'),
+                sassOptions: {
+                  fiber: require('fibers'),
+                },
+              },
+            },
+          ],
+        },
+        {
+          test: /\.css$/,
+          include: [
+            /node_modules[\\/]normalize\.css/,
+            /node_modules[\\/]braft-editor/,
+            /node_modules[\\/]bytemd/,
+            /node_modules[\\/]github-markdown-css/,
+            /node_modules[\\/]highlight.js[\\/]styles/,
+            /iconfont\.css$/,
+          ],
+          use: [
+            {
+              loader: MiniCssExtractPlugin.loader,
+            },
+            {
+              loader: 'css-loader',
+              options: {
+                modules: false,
+              },
+            },
+          ],
+        },
       ],
     },
   });

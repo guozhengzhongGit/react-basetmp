@@ -46,7 +46,7 @@
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-prettier": "3.4.0",
     "eslint-plugin-react": "7.24.0",
-    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-react-hooks": "4.2.0",
     "fibers": "5.0.0",
     "html-webpack-plugin": "5.3.2",
     "husky": "7.0.1",
@@ -70,11 +70,21 @@
   },
   "dependencies": {
     "@ant-design/icons": "4.6.3",
+    "@bytemd/plugin-breaks": "1.10.13",
+    "@bytemd/plugin-footnotes": "1.10.13",
+    "@bytemd/plugin-frontmatter": "1.10.13",
+    "@bytemd/plugin-gfm": "1.10.13",
+    "@bytemd/plugin-highlight": "1.10.13",
+    "@bytemd/plugin-medium-zoom": "1.10.13",
+    "@bytemd/react": "1.10.13",
     "antd": "4.16.12",
     "axios": "0.21.1",
-    "crypto-js": "^4.1.1",
+    "crypto-js": "4.1.1",
     "dayjs": "1.10.6",
+    "github-markdown-css": "4.0.0",
+    "highlight.js": "11.2.0",
     "immer": "9.0.5",
+    "juejin-markdown-theme-channing-cyan": "0.0.1",
     "query-string": "7.0.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
@@ -84,6 +94,6 @@
     "react-transition-group": "4.4.2",
     "redux": "4.1.1",
     "redux-logger": "3.0.6",
-    "url-parse": "^1.5.3"
+    "url-parse": "1.5.3"
   }
 }

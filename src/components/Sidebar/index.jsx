@@ -11,6 +11,7 @@ import {
   CopyOutlined,
   HighlightOutlined,
   LineChartOutlined,
+  SafetyOutlined,
 } from '@ant-design/icons';
 
 import style from './index.scss';
@@ -21,6 +22,7 @@ const iconMap = {
   CopyOutlined: <CopyOutlined />,
   HighlightOutlined: <HighlightOutlined />,
   LineChartOutlined: <LineChartOutlined />,
+  SafetyOutlined: <SafetyOutlined />,
 };
 
 function renderTitle(meta) {
@@ -41,7 +43,6 @@ function LayoutSideBar(props) {
     curBusinessPath,
     rootMenuKeys,
   } = props;
-  const inlineCollapsed = {};
 
   const [selectMenuInfo, setSelectMenuInfo] = useState({
     openKeys: [''],
@@ -57,10 +58,6 @@ function LayoutSideBar(props) {
       openKeys: getPagePathList(pathname),
     }));
   }, [curBusinessPath]);
-
-  if (layoutStyle === 'side') {
-    inlineCollapsed.inlineCollapsed = !sidebarIsOpen;
-  }
 
   const onOpenChange = (keys) => {
     const { openKeys } = selectMenuInfo;
@@ -109,12 +106,20 @@ function LayoutSideBar(props) {
   // console.log(getPagePathList(pathname), curBusinessPath);
 
   return (
-    <aside className={style.leftSidebar}>
+    <aside
+      className={
+        sidebarIsOpen
+          ? `${style.leftSidebar} ${style.leftSidebarOpenWidth}`
+          : `${style.leftSidebar} ${style.leftSidebarCloseWidth}`
+      }
+    >
       <div className={style.leftSidebarLogoContainer}>
         <div className={style.logo}>
           <img src={logo} alt="logo" />
         </div>
-        <div className={style.systemName}>react base Admin</div>
+        {sidebarIsOpen && (
+          <div className={style.systemName}>react base Admin</div>
+        )}
       </div>
       <div className={style.leftSidebarMenuContainer}>
         <Menu
@@ -127,7 +132,6 @@ function LayoutSideBar(props) {
           }
           mode={layoutStyle === 'side' ? 'inline' : 'horizontal'}
           theme={themeStyle}
-          {...inlineCollapsed}
         >
           {routes.map((routeItem) =>
             routeItem.children && routeItem.children.length

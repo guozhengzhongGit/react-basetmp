@@ -16,10 +16,10 @@ module.exports = {
       SYSTEM_BUILD_TARGET: JSON.stringify(process.env.BUILD_TARGET),
     }),
     new AntdDayjsWebpackPlugin(),
-    new webpack.IgnorePlugin({
-      resourceRegExp: /^\.\/locale$/,
-      contextRegExp: /moment$/,
-    }),
+    // new webpack.IgnorePlugin({
+    //   resourceRegExp: /^\.\/locale$/,
+    //   contextRegExp: /moment$/,
+    // }),
     new DashboardPlugin(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
@@ -38,6 +38,7 @@ module.exports = {
     }),
   ],
   resolve: {
+    fallback: { buffer: false },
     alias: {
       '@': paths.src,
       '@c': paths.src + '/components',

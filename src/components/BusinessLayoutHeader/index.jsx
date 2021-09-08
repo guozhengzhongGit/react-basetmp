@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Menu, Dropdown, Avatar } from 'antd';
+import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
+import { toggleSidebarOpened } from '@s/modules/global/action';
 import style from './index.scss';
 
 const menuStyle = {
@@ -8,7 +10,7 @@ const menuStyle = {
 };
 
 const BusinessLayoutHeader = (props) => {
-  const { userInfo, logout } = props;
+  const { userInfo, logout, sidebarIsOpen } = props;
   const menu = (
     <Menu>
       <Menu.Item key="1">
@@ -22,8 +24,14 @@ const BusinessLayoutHeader = (props) => {
       </Menu.Item>
     </Menu>
   );
+  const toggleCollapsed = () => {
+    props.changeCollapsed(!sidebarIsOpen);
+  };
   return (
     <header className={style.businessLayoutHeader}>
+      <div className={style.collapsed} onClick={toggleCollapsed}>
+        {sidebarIsOpen ? <MenuFoldOutlined /> : <MenuUnfoldOutlined />}
+      </div>
       <div className={style.userAvatarOuter}>
         <Dropdown overlay={menu}>
           <a className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
@@ -35,8 +43,15 @@ const BusinessLayoutHeader = (props) => {
     </header>
   );
 };
-
+const mapDispatchToProps = (dispatch) => {
+  return {
+    changeCollapsed: (...params) => dispatch(toggleSidebarOpened(...params)),
+  };
+};
 export default connect(
-  ({ global }) => ({ userInfo: global.userInfo }),
-  () => ({})
+  ({ global }) => ({
+    userInfo: global.userInfo,
+    sidebarIsOpen: global.sidebarIsOpen,
+  }),
+  mapDispatchToProps
 )(BusinessLayoutHeader);

@@ -6,8 +6,18 @@
   overflow: hidden;
   height: $headerHeight;
   display: flex;
-  flex-direction: row-reverse;
+  // flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
   padding: 0 16px;
+  .collapsed {
+    cursor: pointer;
+    font-size: 20px;
+    color: rgba(0,0,0,.65);
+    &:hover {
+      color: #333;
+    }
+  }
   .userAvatarOuter {
     display: flex;
     height: 100%;

@@ -2,12 +2,7 @@ import React, { memo } from 'react';
 import { Redirect } from 'react-router-dom';
 import store from '@s/index';
 import { businessRouteList } from '@r/utils';
-import localStorage from '@u/localStorage';
-
-const getToken = () => {
-  const userInfo = localStorage.getValue('userInfo');
-  return (userInfo && userInfo.token) || '';
-};
+import { getToken } from '@u/auth';
 
 function checkAuth(location) {
   // redux 中的 routes 同时负责渲染 sidebar

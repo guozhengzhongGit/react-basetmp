@@ -25,6 +25,7 @@ const Register = (props) => {
   const submitRegister = async (params) => {
     setInfo(() => ({ loading: true }));
     try {
+      params.role_id = -1;
       const res = await apiPostSubmitRegister(params);
       setInfo(() => ({ loading: false }));
       if (res.code === 200) {

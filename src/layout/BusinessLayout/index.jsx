@@ -1,20 +1,34 @@
 import React, { Suspense } from 'react';
 import { connect } from 'react-redux';
-import { Spin } from 'antd';
+import { Spin, Layout } from 'antd';
 import BusinessLayoutHeader from '@c/BusinessLayoutHeader';
 import Sidebar from '@c/Sidebar';
 import localStorage from '@/utils/localStorage';
 import { initSystemInfo } from '@s/modules/global/action';
 import RouterView from './RouterView';
+import { getToken } from '@u/auth';
 
 import style from './index.scss';
+import { Redirect } from 'react-router-dom';
+
+const { Sider } = Layout;
 
 const BusinessLayout = (props) => {
-  // useEffect(() => {
-  //   props.changeCurrentBusinessPath(window.location.pathname);
-  // });
+  console.log('到达布局组件');
+  // 未登录
+  if (!getToken()) {
+    return (
+      <Redirect
+        to={`/system/login?redirectURL=${encodeURIComponent(
+          window.location.origin +
+            props.location.pathname +
+            props.location.search
+        )}`}
+      />
+    );
+  }
 
-  const { history } = props;
+  const { history, sidebarIsOpen } = props;
 
   const logout = () => {
     localStorage.removeValue('userInfo');
@@ -22,8 +36,10 @@ const BusinessLayout = (props) => {
     history.push('/system/login');
   };
   return (
-    <div className={style.layout}>
-      <Sidebar />
+    <Layout className={style.layout}>
+      <Sider trigger={null} collapsible collapsed={!sidebarIsOpen}>
+        <Sidebar />
+      </Sider>
       <div className={style.rightMain}>
         <BusinessLayoutHeader logout={logout} />
         <div className={style.container}>
@@ -32,7 +48,7 @@ const BusinessLayout = (props) => {
           </Suspense>
         </div>
       </div>
-    </div>
+    </Layout>
   );
 };
 const mapDispatchToProps = (dispatch) => {
@@ -42,4 +58,7 @@ const mapDispatchToProps = (dispatch) => {
     clearSystemInfo: () => dispatch(initSystemInfo()),
   };
 };
-export default connect(() => ({}), mapDispatchToProps)(BusinessLayout);
+export default connect(
+  ({ global }) => ({ sidebarIsOpen: global.sidebarIsOpen }),
+  mapDispatchToProps
+)(BusinessLayout);
