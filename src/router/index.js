@@ -100,7 +100,7 @@ const routes = [
               title: '角色管理',
             },
             component: React.lazy(() =>
-              import(/* webpackChunkName: "404" */ '@/views/auth/Role')
+              import(/* webpackChunkName: "role" */ '@v/auth/Role')
             ),
           },
         ],
@@ -119,9 +119,7 @@ const routes = [
               title: '内容列表',
             },
             component: React.lazy(() =>
-              import(
-                /* webpackChunkName: "contentList" */ '@/views/content/List'
-              )
+              import(/* webpackChunkName: "contentList" */ '@v/content/List')
             ),
           },
           {
@@ -132,7 +130,7 @@ const routes = [
             },
             component: React.lazy(() =>
               import(
-                /* webpackChunkName: "createContent" */ '@/views/content/Create'
+                /* webpackChunkName: "createContent" */ '@v/content/Create'
               )
             ),
           },
@@ -149,7 +147,7 @@ const routes = [
             path: '/error/404',
             auth: false,
             component: React.lazy(() =>
-              import(/* webpackChunkName: "404" */ '@/views/error/NotFound')
+              import(/* webpackChunkName: "404" */ '@v/error/NotFound')
             ),
             meta: {
               title: '页面不存在',
@@ -159,7 +157,7 @@ const routes = [
             path: '/error/403',
             auth: false,
             component: React.lazy(() =>
-              import(/* webpackChunkName: "403" */ '@/views/error/Forbidden')
+              import(/* webpackChunkName: "403" */ '@v/error/Forbidden')
             ),
             meta: {
               title: '暂无权限',
