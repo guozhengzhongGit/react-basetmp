@@ -5,7 +5,7 @@ import { PageHeader, Spin, Alert, Tag } from 'antd';
 import style from './style.scss';
 import { apiGetContentList } from './api';
 
-const ContentList = (props) => {
+const ContentList = () => {
   const [pageData, setPageData] = useState({
     loading: false,
     list: [],
