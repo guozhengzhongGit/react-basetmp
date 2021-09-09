@@ -113,6 +113,16 @@ const routes = [
         redirect: '/content/create',
         children: [
           {
+            path: '/content/list',
+            auth: true,
+            meta: {
+              title: '内容列表',
+            },
+            component: React.lazy(() =>
+              import(/* webpackChunkName: "contentList" */ '@v/content/List')
+            ),
+          },
+          {
             path: '/content/create',
             auth: true,
             meta: {
