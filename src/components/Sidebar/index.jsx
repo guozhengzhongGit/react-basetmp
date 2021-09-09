@@ -12,6 +12,7 @@ import {
   HighlightOutlined,
   LineChartOutlined,
   SafetyOutlined,
+  ReconciliationOutlined,
 } from '@ant-design/icons';
 
 import style from './index.scss';
@@ -23,6 +24,7 @@ const iconMap = {
   HighlightOutlined: <HighlightOutlined />,
   LineChartOutlined: <LineChartOutlined />,
   SafetyOutlined: <SafetyOutlined />,
+  ReconciliationOutlined: <ReconciliationOutlined />,
 };
 
 function renderTitle(meta) {
