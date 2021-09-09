@@ -35,7 +35,6 @@ function formatMenuToRoute(menus) {
 function AsyncRoutes(props) {
   const userInfo = localStorage.getValue('userInfo');
   if (!props.menuLoad) {
-    console.log('请求tree');
     apiGetMenuTree({ roleId: userInfo.role_id })
       .then((res) => {
         if (res.code === 200) {

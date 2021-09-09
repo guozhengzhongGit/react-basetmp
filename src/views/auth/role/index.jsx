@@ -28,7 +28,7 @@ const RoleManage = () => {
         }));
       }
     } catch (e) {
-      console.log(e);
+      console.error(e);
     }
   };
   useEffect(() => {
