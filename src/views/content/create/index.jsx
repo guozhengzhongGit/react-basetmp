@@ -119,16 +119,11 @@ const CreateContent = (props) => {
       tags,
       ...rest
     } = values;
-    const currentTag = formPool.tagPool.find(
-      (item) => item.tag_id === Number(tags)
-    );
     const create_time = dayjs(createTime).format('YYYY-MM-DD HH:mm');
     const create_timestamp = dayjs(createTime).unix();
     const creator_id = creator - 0;
     const is_public = isPublic ? 1 : 2;
-    const tag_name = currentTag.tag_name;
-    const tag_color = currentTag.color;
-    const tag_id = tags;
+    const tag_id = tags.join(',');
     const content = editorValue;
     const params = {
       create_time,
@@ -136,8 +131,6 @@ const CreateContent = (props) => {
       creator_id,
       is_public,
       tag_id,
-      tag_color,
-      tag_name,
       content,
       user_id: userInfo.id,
       role_id: userInfo.role_id,
@@ -234,9 +227,15 @@ const CreateContent = (props) => {
                   },
                 ]}
               >
-                <Select placeholder="请选择内容标签" showArrow allowClear>
+                <Select
+                  placeholder="请选择内容标签"
+                  showArrow
+                  allowClear
+                  maxTagCount={4}
+                  mode="multiple"
+                >
                   {formPool.tagPool.map((tag) => (
-                    <Option key={tag.tag_id}>
+                    <Option key={tag.tag_id} value={tag.tag_id}>
                       <span style={{ color: tag.color }}>{tag.tag_name}</span>
                     </Option>
                   ))}

@@ -134,6 +134,18 @@ const routes = [
               )
             ),
           },
+          {
+            path: '/content/detail/:id',
+            auth: true,
+            meta: {
+              title: '内容详情',
+            },
+            component: React.lazy(() =>
+              import(
+                /* webpackChunkName: "createContent" */ '@v/content/Detail'
+              )
+            ),
+          },
         ],
       },
       {

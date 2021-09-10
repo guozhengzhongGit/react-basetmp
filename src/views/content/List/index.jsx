@@ -5,7 +5,7 @@ import { PageHeader, Spin, Alert, Tag } from 'antd';
 import style from './style.scss';
 import { apiGetContentList } from './api';
 
-const ContentList = () => {
+const ContentList = (props) => {
   const [pageData, setPageData] = useState({
     loading: false,
     list: [],
@@ -42,15 +42,26 @@ const ContentList = () => {
   useEffect(() => {
     fetchContentList();
   }, []);
+  const gotoContentDetail = (item) => {
+    props.history.push('/content/detail/' + item.id);
+  };
   const { loading, list } = pageData;
   const renderListItem = (item) => {
     return (
-      <div key={item.id} className={style.itemWrapper}>
+      <div
+        key={item.id}
+        className={style.itemWrapper}
+        onClick={() => gotoContentDetail(item)}
+      >
         <div className={style.itemTitle}>
           <span>{item.title}</span>
-          {item.tag_name ? (
+          {item.tag.length ? (
             <span>
-              <Tag color={item.tag_color}>{item.tag_name}</Tag>
+              {item.tag.map((tag) => (
+                <Tag key={tag.tag_id} color={tag.color}>
+                  {tag.tag_name}
+                </Tag>
+              ))}
             </span>
           ) : null}
         </div>
