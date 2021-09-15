@@ -1,0 +1,24 @@
+.uploadToolOuter {
+  .title {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 20px;
+  }
+  .uploadContainer {
+    width: 80%;
+    margin: 30px auto 0;
+  }
+  .progressOuter {
+    width: 80%;
+    margin: 10px auto 0;
+  }
+  .resOuter {
+    width: 80%;
+    margin: 30px auto 0;
+    padding-bottom: 30px;
+    .gotoBtn {
+      cursor: pointer;
+      color: #666;
+    }
+  }
+}

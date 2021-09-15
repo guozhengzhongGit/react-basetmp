@@ -149,6 +149,35 @@ const routes = [
         ],
       },
       {
+        path: '/tool',
+        meta: {
+          title: '工具管理',
+        },
+        redirect: '/tool/upload',
+        children: [
+          {
+            path: '/tool/upload',
+            auth: true,
+            meta: {
+              title: '上传资源',
+            },
+            component: React.lazy(() =>
+              import(/* webpackChunkName: "upload" */ '@v/tool/upload')
+            ),
+          },
+          {
+            path: '/tool/filelist',
+            auth: true,
+            meta: {
+              title: '浏览资源',
+            },
+            component: React.lazy(() =>
+              import(/* webpackChunkName: "upload" */ '@v/tool/list')
+            ),
+          },
+        ],
+      },
+      {
         path: '/error',
         meta: {
           title: '错误页面',

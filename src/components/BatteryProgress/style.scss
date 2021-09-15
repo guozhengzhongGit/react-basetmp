@@ -1,0 +1,16 @@
+.barContainer {
+  display: flex;
+  align-items: center;
+  .bar {
+    flex: 1;
+    height: 18px;
+    display: flex;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .num {
+    width: 40px;
+    text-align: center;
+    margin-left: 2px;
+  }
+}

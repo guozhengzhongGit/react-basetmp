@@ -85,6 +85,7 @@
     "highlight.js": "11.2.0",
     "immer": "9.0.5",
     "juejin-markdown-theme-channing-cyan": "0.0.1",
+    "qiniu-js": "3.3.3",
     "query-string": "7.0.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",

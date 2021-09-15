@@ -13,6 +13,9 @@ import {
   LineChartOutlined,
   SafetyOutlined,
   ReconciliationOutlined,
+  ToolOutlined,
+  UploadOutlined,
+  DatabaseOutlined,
 } from '@ant-design/icons';
 
 import style from './index.scss';
@@ -25,6 +28,9 @@ const iconMap = {
   LineChartOutlined: <LineChartOutlined />,
   SafetyOutlined: <SafetyOutlined />,
   ReconciliationOutlined: <ReconciliationOutlined />,
+  ToolOutlined: <ToolOutlined />,
+  UploadOutlined: <UploadOutlined />,
+  DatabaseOutlined: <DatabaseOutlined />,
 };
 
 function renderTitle(meta) {
