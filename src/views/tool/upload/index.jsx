@@ -8,9 +8,11 @@ import * as qiniu from 'qiniu-js';
 import styles from './style.scss';
 import { getQiniuToken } from './api';
 import { config } from './config';
+import { setCurBusinessPath } from '@s/modules/global/action';
+import { connect } from 'react-redux';
 
 const { Dragger } = Upload;
-const UploadTool = () => {
+const UploadTool = (props) => {
   const [pageData, setPageData] = useState({
     loading: false,
     uploadLoading: false,
@@ -112,8 +114,12 @@ const UploadTool = () => {
     customRequest: uploadByQiniu,
     showUploadList: false,
   };
+  const gotoFileList = () => {
+    props.changeCurrentBusinessPath('/tool/filelist');
+    props.history.push('/tool/filelist');
+  };
   const renderExtra = () => (
-    <span className={styles.gotoBtn}>
+    <span className={styles.gotoBtn} onClick={gotoFileList}>
       查看上传列表
       <ContainerOutlined />
     </span>
@@ -192,4 +198,9 @@ const UploadTool = () => {
   );
 };
 
-export default UploadTool;
+const mapDispatchToProps = (dispatch) => ({
+  changeCurrentBusinessPath: (...params) =>
+    dispatch(setCurBusinessPath(...params)),
+});
+
+export default connect(() => ({}), mapDispatchToProps)(UploadTool);

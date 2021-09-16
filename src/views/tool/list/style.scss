@@ -1,0 +1,67 @@
+@keyframes containerRotateInfinite {
+  from {
+    transform: rotate(0deg);
+  } to {
+  transform: rotate(360deg);
+      }
+}
+.fileListOuter {
+  width: 94%;
+  margin: 0 auto;
+  padding: 16px 0;
+  .tableOuter {
+    margin-top: 14px;
+    .extColumnOuter {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .icon {
+        font-size: 22px;
+        margin-right: 10px;
+      }
+      .text {
+        color: #fff;
+        width: 38px;
+        border-radius: 2px;
+        font-size: 12px;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 20px;
+      }
+    }
+    .platformColumnOuter {
+      font-size: 22px;
+    }
+    .actionColumnOuter {
+      cursor: pointer;
+    }
+    .actionColumnOuterDisabled {
+      cursor: not-allowed;
+    }
+    .tableImgExtraInfo {
+      margin-left: 45px;
+      margin-bottom: 0;
+    }
+  }
+  .previewModalOuter {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    .imgLoadingContainer {
+      font-size: 22px;
+      color: #8c8c8c;
+      >span {
+        animation: containerRotateInfinite 1200ms infinite linear;
+      }
+    }
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+}
