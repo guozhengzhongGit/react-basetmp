@@ -49,7 +49,7 @@ const FileList = () => {
   };
   const handleWindowResize = () => {
     const viewHeight = document.documentElement.clientHeight;
-    const contentHeight = viewHeight - 54 - 18 - 16 - 40 - 14 - 55 - 18 - 16;
+    const contentHeight = viewHeight - 54 - 16 - 16 - 40 - 14 - 55;
     setPageData(
       produce((draft) => {
         draft.tableScrollHeight = contentHeight;
@@ -59,7 +59,7 @@ const FileList = () => {
   useEffect(() => {
     fetchFileList();
     const viewHeight = document.documentElement.clientHeight;
-    const contentHeight = viewHeight - 54 - 18 - 16 - 40 - 14 - 55 - 18 - 16;
+    const contentHeight = viewHeight - 54 - 16 - 16 - 40 - 14 - 55;
     setPageData(
       produce((draft) => {
         draft.tableScrollHeight = contentHeight;

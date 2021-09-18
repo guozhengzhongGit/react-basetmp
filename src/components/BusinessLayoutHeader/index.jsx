@@ -28,7 +28,13 @@ const BusinessLayoutHeader = (props) => {
     props.changeCollapsed(!sidebarIsOpen);
   };
   return (
-    <header className={style.businessLayoutHeader}>
+    <header
+      className={
+        sidebarIsOpen
+          ? `${style.businessLayoutHeader}`
+          : `${style.businessLayoutHeader} ${style.businessLayoutHeaderWhenClose}`
+      }
+    >
       <div className={style.collapsed} onClick={toggleCollapsed}>
         {sidebarIsOpen ? <MenuFoldOutlined /> : <MenuUnfoldOutlined />}
       </div>

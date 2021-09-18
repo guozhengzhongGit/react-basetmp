@@ -79,7 +79,7 @@ const routes = [
               )
             ),
             meta: {
-              title: '系统介绍',
+              title: '数据统计',
               icon: 'read',
             },
           },
@@ -96,12 +96,13 @@ const routes = [
           {
             path: '/auth/role',
             auth: true,
-            meta: {
-              title: '角色管理',
-            },
             component: React.lazy(() =>
               import(/* webpackChunkName: "role" */ '@v/auth/role')
             ),
+            meta: {
+              title: '角色管理',
+              icon: 'read',
+            },
           },
         ],
       },

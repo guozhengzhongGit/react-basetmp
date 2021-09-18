@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useRef, useState } from 'react';
 import { connect } from 'react-redux';
 import { Spin, Layout } from 'antd';
 import BusinessLayoutHeader from '@c/BusinessLayoutHeader';
@@ -14,6 +14,10 @@ import { Redirect } from 'react-router-dom';
 const { Sider } = Layout;
 
 const BusinessLayout = (props) => {
+  const prevScrollTopRef = useRef(0);
+  const [bar, setBar] = useState({
+    topBarIsShow: true,
+  });
   console.log('到达布局组件');
   // 未登录
   if (!getToken()) {
@@ -35,13 +39,30 @@ const BusinessLayout = (props) => {
     props.clearSystemInfo();
     history.push('/system/login');
   };
+  const handleScroll = (e) => {
+    const scrollHeight = e.target.scrollTop;
+    const prev = prevScrollTopRef.current;
+    const flag = scrollHeight - prev;
+    if (flag > 0 && Math.abs(flag) > 100) {
+      prevScrollTopRef.current = scrollHeight;
+      setBar({
+        topBarIsShow: false,
+      });
+    }
+    if (flag < 0 && Math.abs(flag) > 50) {
+      prevScrollTopRef.current = scrollHeight;
+      setBar({
+        topBarIsShow: true,
+      });
+    }
+  };
   return (
     <Layout className={style.layout}>
       <Sider trigger={null} collapsible collapsed={!sidebarIsOpen}>
         <Sidebar />
       </Sider>
-      <div className={style.rightMain}>
-        <BusinessLayoutHeader logout={logout} />
+      <div className={style.rightMain} onScroll={handleScroll}>
+        <BusinessLayoutHeader logout={logout} topBarIsShow={bar.topBarIsShow} />
         <div className={style.container}>
           <Suspense fallback={<Spin size="large" className={style.loading} />}>
             <RouterView />

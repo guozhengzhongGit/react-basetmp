@@ -145,6 +145,7 @@ const prodConfig = () => {
           test: /\.s[ac]ss$/i,
           include: [
             /node_modules[\\/]juejin-markdown-theme-channing-cyan/,
+            /node_modules[\\/]juejin-markdown-theme-cyanosis/,
             // /node_modules/
             // /node_modules[\\/]normalize\.css/,
             // /node_modules[\\/]braft-editor/,

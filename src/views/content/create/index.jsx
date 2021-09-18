@@ -301,6 +301,7 @@ const CreateContent = (props) => {
           value={editorValue}
           plugins={editorPlugins}
           onChange={(v) => {
+            console.log(v);
             setEditorValue(v);
           }}
         />

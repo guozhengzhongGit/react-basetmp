@@ -1,0 +1,74 @@
+.dashboardOuter {
+  margin: 20px;
+  .titleOuter {
+    //display: flex;
+    .itemContainer {
+      background: #fff;
+      padding: 14px;
+      .explain {
+        position: relative;
+        img {
+          width: 60px;
+          height: 60px;
+          position: absolute;
+          right: 0;
+          top: 0;
+          display: block;
+        }
+      }
+      .userTips {
+        width: 90%;
+        margin: 0 auto;
+        color: rgba(0,0,0,.45);
+        display: flex;
+        justify-content: space-between;
+        .tipItem {
+          display: flex;
+          align-items: center;
+          position: relative;
+          .value {
+            color: #333;
+            margin-left: 4px;
+            margin-right: 14px;
+          }
+          .fileStatusValue {
+            color: #333;
+            margin-left: 4px;
+            margin-right: 6px;
+          }
+          .up {
+            position: absolute;
+            right: 0;
+            top: 4px;
+            border-left: transparent 4px solid;
+            border-right: transparent 4px solid;
+            border-bottom: #ff4d4f 4px solid;
+            border-top: 4px solid transparent;
+          }
+          .down {
+            position: absolute;
+            right: 0;
+            top: 8px;
+            border-left: transparent 4px solid;
+            border-right: transparent 4px solid;
+            border-bottom: transparent 4px solid;
+            border-top: 4px solid #73d13d;
+          }
+        }
+      }
+      .titleAssets {
+        width: 90%;
+        padding: 7px 0;
+        margin: 0 auto;
+      }
+    }
+  }
+  .contentOuter {
+    margin-top: 20px;
+    background: #fff;
+    padding: 10px 16px;
+  }
+  .contentOuterFlex {
+    display: flex;
+  }
+}
