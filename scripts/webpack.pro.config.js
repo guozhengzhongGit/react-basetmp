@@ -90,6 +90,37 @@ const prodConfig = () => {
           ],
         },
         {
+          test: /\.less$/i,
+          include: paths.src,
+          use: [
+            {
+              loader: MiniCssExtractPlugin.loader,
+              options: {},
+            },
+            {
+              // 将 CSS 转化成 CommonJS 模块
+              loader: 'css-loader',
+              options: {
+                importLoaders: 1,
+                modules: {
+                  mode: 'local',
+                  exportGlobals: true,
+                  localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                  localIdentContext: paths.src,
+                  localIdentHashSalt: 'webpack',
+                  namedExport: false,
+                  exportLocalsConvention: 'camelCase',
+                  exportOnlyLocals: false,
+                },
+              },
+            },
+            // 将 Sass 编译成 CSS
+            {
+              loader: 'less-loader',
+            },
+          ],
+        },
+        {
           test: /\.css$/,
           exclude: [
             /node_modules/,

@@ -79,6 +79,37 @@ const devConfig = () => {
           ],
         },
         {
+          test: /\.less$/i,
+          include: paths.src,
+          use: [
+            {
+              // 将 JS 字符串生成为 style 节点
+              loader: 'style-loader',
+            },
+            {
+              // 将 CSS 转化成 CommonJS 模块
+              loader: 'css-loader',
+              options: {
+                importLoaders: 1,
+                modules: {
+                  mode: 'local',
+                  exportGlobals: true,
+                  localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                  localIdentContext: paths.src,
+                  localIdentHashSalt: 'webpack',
+                  namedExport: false,
+                  exportLocalsConvention: 'camelCase',
+                  exportOnlyLocals: false,
+                },
+              },
+            },
+            // 将 less 编译成 CSS
+            {
+              loader: 'less-loader',
+            },
+          ],
+        },
+        {
           test: /\.css$/,
           exclude: [/node_modules/],
           use: [
